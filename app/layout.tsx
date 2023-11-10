@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,10 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased grainy",
           fontSans.variable
         )}
       >
+        <Navbar />
         {children}
       </body>
     </html>
