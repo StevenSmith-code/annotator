@@ -3,6 +3,9 @@ import "@/app/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import Providers from "@/components/Providers";
+
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,15 +24,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased grainy",
-          fontSans.variable
-        )}
-      >
-        <Navbar />
-        {children}
-      </body>
+      <Providers>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased grainy",
+            fontSans.variable
+          )}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
