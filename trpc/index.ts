@@ -47,9 +47,9 @@ export const appRouter = router({
         },
       });
 
-      if (!file) return { status: "PENDING" as const };
+      if (file === undefined) return { status: "PENDING" as const };
 
-      return { status: file.uploadStatus };
+      return { status: file?.uploadStatus };
     }),
 
   getFile: privateProcedure
